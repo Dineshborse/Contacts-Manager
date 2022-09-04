@@ -1,0 +1,63 @@
+.FilterFormBox-modalBackground {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(66, 64, 64, 0.38);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+    font-size: 18%;
+    /* border: 1px solid black; */
+  }
+  
+  .FilterFormBox-modalContainer {
+    width: calc(345px * var(--widthmultiplier));
+    height: calc(318px * var(--heightmultiplier));
+  
+    border-radius: calc(12px * (var(--heightmultiplier) + var(--widthmultiplier))/2);
+  
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    /* border: 1px solid black; */
+    padding-top: calc(50px * var(--heightmultiplier));
+    padding-bottom: calc(50px * var(--heightmultiplier));
+  }
+  .FilterFormBox-checkbox {
+
+    width: calc(21px * (var(--heightmultiplier) + var(--widthmultiplier))/2);
+    height: calc(21px * (var(--heightmultiplier) + var(--widthmultiplier))/2);
+
+    background: #FBF8F8;
+    border: 0.5px solid #2DA5FC;
+    border-radius: calc(3px * (var(--heightmultiplier) + var(--widthmultiplier))/2);
+}
+
+.FilterFormBox-checkbox:checked {
+    background: #2DA5FC;
+    border: 0.5px solid black;
+    border-radius: calc(3px * (var(--heightmultiplier) + var(--widthmultiplier))/2);
+}
+.FilterFormBox-filter-button{
+    
+    font-size: 120%;
+    font-weight: 600;
+    color: white;
+    border-radius: 5px;
+    padding: 10px;
+    border: 2px solid #2DA5FC;
+    color: #2DA5FC;
+    background-color: white;
+}
+.FilterFormBox-filter-button:hover{
+    background-color: #2DA5FC;
+    border: 2px solid #2DA5FC;
+    color: white;
+    cursor: pointer;
+}

@@ -1,6 +1,5 @@
 import React, { useEffect, useLayoutEffect, useRef, useState } from "react";
 import "./TotalContactsPage.css"
-// import { parse } from "papaparse"
 
 import SortIcon from "./SortIcon";
 import ContactRow from "./ContactRow";
@@ -10,8 +9,9 @@ import NotificationMessageBox from "../NotificationAlert/NotificationMessageBox"
 import DeleteContactsBox from "../DeleteContacts/DeleteContactsBox";
 import axios from "axios"
 import { useNavigate } from "react-router-dom";
+import FilterFormBox from "../FilterFormBox";
 
-// import {fs} from "fs"
+
 
 const PageNumber = ({ page, activePage, setActivePage }) => {
 
@@ -28,8 +28,6 @@ const TotalContacts = ({ setuserCookie, userCookie, removeuserCookie }) => {
         navigate("/");
     }
 
-    // let NotificationMessage ="";
-    // let NotificationOperationName="";
     const [NotificationMessage, setNotificationMessage] = useState("");
     const [NotificationOperationName, setNotificationOperationName] = useState("");
 
@@ -58,22 +56,8 @@ const TotalContacts = ({ setuserCookie, userCookie, removeuserCookie }) => {
     const [isDeleteContactsVisible, setIsDeleteContactsVisible] = useState(false);
     const [isImportContactsVisible, setIsImportContactsVisible] = useState(false);
     const [isNotificationVisible, setIsNotificationVisible] = useState(false);
+    const [isFilterFormVisible, setIsFilterFormVisible] = useState(false);
 
-    // const handleDrop = (e) => {
-    //     const reader = new FileReader()
-    //     reader.onload = (result) => {
-    //         // console.log(result);
-    //         // parse(reader.result);
-    //         const out = parse(reader.result.slice(0, -1), {
-    //             header: true
-    //         }).data;
-    //         // console.log(reader.result.slice(0,-1));
-    //         console.log(out[0]);
-    //     }
-    //     reader.readAsText(e.dataTransfer.files[0]);
-    // }
-
-    // var results = Papa.parse(csvString);
     const dimentionMultiplier = 100;
 
     let calFontHeight = window.innerHeight.toString() + "px";
@@ -84,9 +68,7 @@ const TotalContacts = ({ setuserCookie, userCookie, removeuserCookie }) => {
 
     let calMulHeight = parseInt(window.innerHeight * dimentionMultiplier / 1117) / dimentionMultiplier;
     let calmulWidth = parseInt(window.innerWidth * dimentionMultiplier / 1727) / dimentionMultiplier;
-    // let calMulHeight = Number((window.innerHeight/1117).toFixed(2));
-    // let calmulWidth = Number((window.innerWidth/1727).toFixed(2));
-    // const [ContainerStyle, setContainerStyle] = useState({ height: calFontHeight, width: calFontWidth });
+
     const [SizeMultiplier, setSizeMultiplier] = useState({ "--widthmultiplier": calmulWidth, "--heightmultiplier": calMulHeight, height: calFontHeight, width: calFontWidth });
     // console.log(SizeMultiplier)
     let timeoutNotificationID;
@@ -108,19 +90,15 @@ const TotalContacts = ({ setuserCookie, userCookie, removeuserCookie }) => {
 
     useLayoutEffect(() => {
         function handleResize() {
-            // let calFontHeight= (window.innerHeight/1117).toFixed(3).toString()+"px";
-            // let calFontWidth= (window.innerWidth/1117).toFixed(3).toString()+"px";
+
             let calFontHeight = window.innerHeight.toString() + "px";
             let calFontWidth = window.innerWidth.toString() + "px";
             let calMulHeight = (parseInt(window.innerHeight * dimentionMultiplier / 1117) / dimentionMultiplier);
             let calmulWidth = (parseInt(window.innerWidth * dimentionMultiplier / 1727) / dimentionMultiplier);
-            // let calMulHeight = Number((window.innerHeight/1117).toFixed(2));
-            // let calmulWidth = Number((window.innerWidth/1727).toFixed(2));
+
             setSizeMultiplier({ "--widthmultiplier": calmulWidth, "--heightmultiplier": calMulHeight, height: calFontHeight, width: calFontWidth });
             console.log(calmulWidth, calMulHeight);
-            // setContainerHeight(calFontHeight);
-            // setContainerWidth(calFontWidth);
-            // setContainerStyle({ height: calFontHeight, width: calFontWidth })
+
             console.log(calFontHeight, calFontWidth);
             document.body.style.fontSize = ((window.innerHeight / 1117) * 100).toString() + "px";
             document.body.style.width = window.innerWidth.toString() + "px";
@@ -161,32 +139,6 @@ const TotalContacts = ({ setuserCookie, userCookie, removeuserCookie }) => {
             }).catch((err) => {
                 console.log(err)
             });
-        // else{
-        // axios({
-        //     url: "https://contactsmanager-server.herokuapp.com/user/contacts",
-        //     // url: "https://contactsmanager-server.herokuapp.com/user/contacts",
-        //     method: "GET",
-        //     headers: {
-        //         "Content-type": "application/json; charset=UTF-8",
-        //         "authorization": userCookie.token//"eyJhbGciOiJIUzI1NiJ9.ZGluZXNoYm9yc2VAZ21haWwuY29t.GcNFxh1NL1qMb17t48u33Jo9am194niNyFonB8r1G9Q"
-        //     },
-        //     // data: {}
-        // }).then((resp) => {
-        //     console.log(resp.data)
-
-        //     resp.data.data.forEach((element, i) => {
-        //         element.index = i;
-        //     });
-        //     setUserName(resp.data.username);
-        //     setContactsData(resp.data.data)
-        //     console.log(resp.data);
-        //     setCurrentPage(1);
-
-        // }).catch((err) => {
-        //     // window.alert(err.response.data.message)
-        //     console.log(err);
-
-        // })}
     }, [isImportContactsVisible, isDeleteContactsVisible, userCookie.token])
 
     const DeleteOneContact = (contact) => {
@@ -219,7 +171,7 @@ const TotalContacts = ({ setuserCookie, userCookie, removeuserCookie }) => {
             });
     }
     const DeleteSelectedContacts = () => {
-        
+
 
         fetch("https://contactsmanager-server.herokuapp.com/user/contact/deletemany", {
             // Adding method type
@@ -251,32 +203,16 @@ const TotalContacts = ({ setuserCookie, userCookie, removeuserCookie }) => {
                     setisDisplayingSearchedItem(false)
                     setCurrentPage(1);
                 }
-                else{
+                else {
                     window.alert(json.message)
                 }
             });
-            // .catch((err)=>{
-            //     console.log(err);
-            //     window.alert(err)
-            // })
+        // .catch((err)=>{
+        //     console.log(err);
+        //     window.alert(err)
+        // })
     }
-    // const AddContactForDeleteRequest = (index) => { //selectForDelete={AddContactForDeleteRequest} removeSelectForDelete={RemoveContactForDeleteRequest}
-    //     let deletearr = DeleteIndexStorage;
-    //     let sliceIndex = deletearr.indexOf(index);
-    //     if (sliceIndex === -1) {
-    //         setDeleteIndexStorage([...deletearr, index])
-    //     }
-    //     return DeleteIndexStorage;
-    // }
 
-    // const RemoveContactForDeleteRequest = (index) => {
-    //     let deletearr = DeleteIndexStorage;
-    //     let sliceIndex = deletearr.indexOf(index);
-    //     if (sliceIndex !== -1) {
-    //         setDeleteIndexStorage(deletearr.splice(sliceIndex, 1))
-    //     }
-    //     return DeleteIndexStorage;
-    // }
     const handleSortUpClick = (column) => {
         const compareSortAsc = (a, b) => {
             if (a[column] > b[column]) {
@@ -398,10 +334,6 @@ const TotalContacts = ({ setuserCookie, userCookie, removeuserCookie }) => {
     }
 
     const handleSearchStopClick = (e) => {
-        // e.preventDefault();
-        // SearchBarElement.current.style.backgroundColor = "#F2F2F2"
-        // SearchSuggestionBox.current.style.display = "none";
-        // SearchBarElement.current.style.boxShadow = "1px 1px 20px rgba(0, 0, 0, 0.0)"
         setSearchbarBoxVisibility(false);
     }
     const handleTotalContactsClick = async () => {
@@ -440,24 +372,26 @@ const TotalContacts = ({ setuserCookie, userCookie, removeuserCookie }) => {
             setCurrentPage(CurrentPage - 1);
         }
     }
+    const handlefilterClick = () => {
+        setIsFilterFormVisible(true);
+    }
+    const handleApplyFilter = (filterOptions) => {
+        let filteredContacts = [];
+        console.log(filterOptions)
+        ContactsData.forEach(ele => {
+            let country= ele.country.toLocaleLowerCase();
+            let company= ele.company.toLocaleLowerCase();
+            if (company.includes(filterOptions.company) && country.includes(filterOptions.country)) {
+                filteredContacts.push(ele)
+            }
+        })
+        console.log(filteredContacts)
+        // setCurrentPage(0);
+        setisDisplayingSearchedItem(true);
+        setCurrentPageContacts(filteredContacts);
+    }
 
-    //     useEffect(() => {
-    //     /**
-    //      * Alert if clicked on outside of element
-    //      */
-    //     function handleClickOutside(event) {
-    //       if ((SearchSuggestionBox.current && !SearchSuggestionBox.current.contains(event.target)&& (SearchBarElement.current && !SearchBarElement.current.contains(event.target)))) {
-    //         alert("You clicked outside of me!");
-    //       }
-    //     }
-    //     // Bind the event listener
-    //     document.addEventListener("mousedown", handleClickOutside);
-    //     return () => {
-    //       // Unbind the event listener on clean up
-    //       document.removeEventListener("mousedown", handleClickOutside);
-    //     };
-    //   }, [SearchSuggestionBox,SearchBarElement]);
-    return (//style={ContainerStyle} //{"--widthmultiplier":0.5,"--heightmultiplier":0.5}
+    return (
         <div id="total-contacts-page-container" style={SizeMultiplier} >
             <div className="total-contacts-page-left-menu">
                 <p className="total-contacts-page-left-menu-logo">Logo</p>
@@ -504,7 +438,7 @@ const TotalContacts = ({ setuserCookie, userCookie, removeuserCookie }) => {
                             </div>
                             <div className="total-contacts-page-btn-filters">
                                 <img src="Vectorfilter.svg" alt="Vectorfilter" className="total-contacts-page-btn-filters-icon-img"></img>
-                                <div className="total-contacts-page-btn-filters-name">Filters</div>
+                                <div onClick={handlefilterClick} className="total-contacts-page-btn-filters-name">Filters</div>
                                 <img src="Pipe.svg" alt="pipe" className="total-contacts-page-btn-filters-pipe-img"></img>
                                 <img src="VectordownArrow.svg" alt="VectordownArrow" className="total-contacts-page-btn-filters-downarrow-img"></img>
                             </div>
@@ -516,7 +450,7 @@ const TotalContacts = ({ setuserCookie, userCookie, removeuserCookie }) => {
                                 <img src="Vectordelete.svg" alt="Vectordelete" className="total-contacts-page-btn-delete-icon-img"></img>
                                 <div className="total-contacts-page-btn-delete-name">Delete</div>
                             </div>
-                            <div onClick={() => {setIsImportContactsVisible(true) }} className="total-contacts-page-btn-import">
+                            <div onClick={() => { setIsImportContactsVisible(true) }} className="total-contacts-page-btn-import">
                                 <img src="Vectorimport.svg" alt="Vectorimport" className="total-contacts-page-btn-import-icon-img"></img>
                                 <div className="total-contacts-page-btn-import-name">Import</div>
                             </div>
@@ -581,6 +515,7 @@ const TotalContacts = ({ setuserCookie, userCookie, removeuserCookie }) => {
             {isImportContactsVisible && <ImportContactsBox setOpenModal={setIsImportContactsVisible} setuserCookie={setuserCookie} userCookie={userCookie} notify={handleNotificationSent} />}
             {isNotificationVisible && <NotificationMessageBox setOpenModal={setIsNotificationVisible} message={NotificationMessage} operationDone={NotificationOperationName} cleartimer={handleClearNotificationTimeout} />}
             {isDeleteContactsVisible && <DeleteContactsBox setOpenModal={setIsDeleteContactsVisible} replyDeleteYes={DeleteSelectedContacts} />}
+            {isFilterFormVisible && <FilterFormBox setOpenModal={setIsFilterFormVisible} filterfunc={handleApplyFilter} />}
         </div>
     )
 }
