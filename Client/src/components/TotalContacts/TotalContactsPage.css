@@ -810,7 +810,9 @@ height: 80.4%; */
     white-space: nowrap;
     text-overflow: ellipsis;
 }
-
+.total-contacts-page-listdown-index-designation:hover{
+    cursor: pointer;
+}
 
 
 .total-contacts-page-listdown-index-sort-designation {
@@ -872,6 +874,9 @@ height: 80.4%; */
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
+}
+.total-contacts-page-listdown-index-company:hover{
+    cursor: pointer;
 }
 
 .total-contacts-page-listdown-index-sort-company {
@@ -935,6 +940,9 @@ height: 80.4%; */
     white-space: nowrap;
     text-overflow: ellipsis;
 }
+.total-contacts-page-listdown-index-industry {
+cursor: pointer;
+}
 
 .total-contacts-page-listdown-index-sort-industry {
     position: absolute;
@@ -947,6 +955,9 @@ height: 80.4%; */
     align-items: center;
     justify-content: center;
     /* border: 1px solid black; */
+}
+.total-contacts-page-listdown-index-sort-industry:hover{
+    cursor: pointer;
 }
 
 .total-contacts-page-listdown-index-sortarrowdown-industry {

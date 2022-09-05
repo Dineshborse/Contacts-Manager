@@ -464,15 +464,15 @@ const TotalContacts = ({ setuserCookie, userCookie, removeuserCookie }) => {
                                 <input type={"checkbox"} onChange={handleMarkAll} className="total-contacts-page-checkbox" checked={isSelected} />
                                 <div className="total-contacts-page-listdown-index-name">Name</div>
                                 <div className="total-contacts-page-listdown-index-pipe"></div>
-                                <div className="total-contacts-page-listdown-index-designation">Designation</div>
+                                <div onClick={()=>{handleSortUpClick("designation")}} className="total-contacts-page-listdown-index-designation">Designation</div>
                                 <SortIcon classOwn={"total-contacts-page-listdown-index-sort-designation"} classOwn2={"total-contacts-page-listdown-index-sortarrowdown-designation "}
                                     sortUp={handleSortUpClick} sortDown={handleSortDownClick} name={"designation"} />
                                 <div className="total-contacts-page-listdown-index-pipe-designation"></div>
-                                <div className="total-contacts-page-listdown-index-company">Company</div>
+                                <div onClick={()=>{handleSortUpClick("company")}} className="total-contacts-page-listdown-index-company">Company</div>
                                 <SortIcon classOwn={"total-contacts-page-listdown-index-sort-company"} classOwn2={"total-contacts-page-listdown-index-sortarrowdown-company "}
                                     sortUp={handleSortUpClick} sortDown={handleSortDownClick} name={"company"} />
                                 <div className="total-contacts-page-listdown-index-pipe-company"></div>
-                                <div className="total-contacts-page-listdown-index-industry">Industry</div>
+                                <div onClick={()=>{handleSortUpClick("industry")}} className="total-contacts-page-listdown-index-industry">Industry</div>
                                 <SortIcon classOwn={"total-contacts-page-listdown-index-sort-industry"} classOwn2={"total-contacts-page-listdown-index-sortarrowdown-industry "}
                                     sortUp={handleSortUpClick} sortDown={handleSortDownClick} name={"industry"} />
                                 <div className="total-contacts-page-listdown-index-pipe-industry"></div>
