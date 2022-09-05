@@ -898,7 +898,7 @@ height: 80.4%; */
 .total-contacts-page-listdown-index-sortarrowdown-company:hover {
     cursor: pointer;
     width: calc(13px * var(--widthmultiplier));
-    height: calc(6px * var(--heightmultiplier));
+    height: calc(10px * var(--heightmultiplier));
     /* background: #2DA5FC; */
     fill: #2DA5FC;
 }
@@ -960,7 +960,7 @@ height: 80.4%; */
 .total-contacts-page-listdown-index-sortarrowdown-industry:hover {
     cursor: pointer;
     width: calc(13px * var(--widthmultiplier));
-    height: calc(6px * var(--heightmultiplier));
+    height: calc(10px * var(--heightmultiplier));
     /* background: #2DA5FC; */
     fill: #2DA5FC;
 }
