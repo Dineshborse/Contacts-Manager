@@ -1,0 +1,270 @@
+body {
+    overflow-y: hidden;
+    overflow-x: hidden;
+}
+
+.signin-main-Container {
+padding: 0px;
+margin: 0px;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* border: 1px solid black; */
+}
+
+.signin-Container {
+    display: flex;
+    /* justify-content: center;
+    align-items: center; */
+    width: calc(1400px * var(--widthmultiplier));
+    height: calc(800px * var(--heightmultiplier));
+    background: rgba(206, 243, 255, 0.74);
+    box-shadow: 0px 4px 22px #B2DFFF;
+    border-radius: calc(20px * (var(--heightmultiplier) + var(--widthmultiplier))/2);
+
+}
+
+.signin-Container2 {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    /* border: 1px solid black; */
+    align-self: center;
+    justify-self: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+
+}
+
+
+
+
+.signin-circle {
+    position: absolute;
+    width: calc(300px * var(--widthmultiplier));
+    height: calc(300px * var(--widthmultiplier));
+    /* top: calc(calc(44 / 300px * var(--widthmultiplier)) - calc(300px * var(--widthmultiplier)));
+    left: calc(calc(44 / 300px * var(--widthmultiplier)) - calc(300px * var(--widthmultiplier))); */
+    /* top: calc(calc(44px * var(--widthmultiplier)/300) - calc(300px * var(--widthmultiplier))) ;
+    left: calc(calc(44px * var(--widthmultiplier)/300) - calc(300px * var(--widthmultiplier))) ; */
+    top: -50px;
+    left: -50px;
+    opacity: 1;
+    z-index: -1;
+
+
+    background: #B2DFFF;
+    border-radius: 50%
+}
+
+.signin-circle2 {
+    position: absolute;
+    width: calc(300px * var(--widthmultiplier));
+    height: calc(300px * var(--widthmultiplier));
+    z-index: -1;
+
+    left: calc(1477px * var(--widthmultiplier));
+    top: calc(867px * var(--heightmultiplier));
+    opacity: 1;
+
+    background: #B2DFFF;
+    /* transform: rotate(100.53deg); */
+    border-radius: 50%;
+
+
+}
+
+.signin-image {
+    width: calc(178px * var(--widthmultiplier));
+    height: calc(155px * var(--widthmultiplier));
+    opacity: 1;
+    align-self: flex-end;
+    justify-self: flex-start;
+    margin-left: calc(60px * var(--widthmultiplier));
+    margin-bottom: calc(40px * var(--widthmultiplier));
+    /* border: 1px solid black; */
+
+}
+
+.signin-image2 {
+    width: calc(178px * var(--widthmultiplier));
+    height: calc(155px * var(--widthmultiplier));
+    opacity: 1;
+    align-self: flex-start;
+    justify-self: flex-end;
+    margin-right: calc(60px * var(--widthmultiplier));
+    margin-top: calc(40px * var(--widthmultiplier));
+}
+
+.signin-logo {
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 40%;
+    /* line-height: 18px; */
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #7D8CC4;
+margin-top: calc(189px * var(--heightmultiplier));
+
+}
+
+.signin-message-div {
+    margin-top: calc(31px * var(--heightmultiplier));
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15%;
+    /* line-height: 22px; */
+    /* identical to box height, or 147% */
+
+    display: flex;
+    align-items: center;
+    text-align: center;
+    letter-spacing: 0.25px;
+
+    color: #000000;
+
+    opacity: 0.6;
+}
+
+.signin-forminput-username {
+    /* display: block; */
+    padding: 0px;
+    margin-top: calc(76px * var(--heightmultiplier));
+    width: calc(450px * var(--widthmultiplier));
+    height: calc(54px * var(--heightmultiplier));
+    border: 1px solid grey;
+    border-radius: calc(5px * (var(--heightmultiplier) + var(--widthmultiplier))/2);
+    opacity: 1;
+    background-color: #FFFFFF;
+    border: 1px solid #E2E2E2;
+
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15%;
+    padding-left: calc(20px * var(--widthmultiplier));
+    display: flex;
+    align-items: center;
+    letter-spacing: 0.25px;
+
+    color: #000000;
+
+    opacity: 1;
+
+
+}
+
+.signin-forminput-username:focus {
+    border: none;
+    outline: none;
+
+}
+
+.signin-forminput-password {
+    /* display: block;
+    margin: 20px;
+    padding: 9px 10vw 7px 10px;
+    border: 1px solid grey;
+    border-radius: 5px;
+    opacity: 1; */
+    padding: 0px;
+    margin-top: calc(34px * var(--heightmultiplier));
+    width: calc(450px * var(--widthmultiplier));
+    height: calc(54px * var(--heightmultiplier));
+    border: 1px solid grey;
+    border-radius: calc(5px * (var(--heightmultiplier) + var(--widthmultiplier))/2);
+    opacity: 1;
+    background-color: #FFFFFF;
+    border: 1px solid #E2E2E2;
+
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15%;
+    padding-left: calc(20px * var(--widthmultiplier));
+    display: flex;
+    align-items: center;
+    letter-spacing: 0.25px;
+
+    color: #000000;
+
+    opacity: 1;
+
+}
+
+.signin-forminput-password:focus {
+    border: none;
+    outline: none;
+
+}
+
+.signin-formsubmit-signin-button {
+    /* display: block;
+    margin: 20px;
+    padding: 9px 9.1vw;
+    background-color: rgb(96, 157, 238);
+    border: 1px solid grey;
+    border-radius: 7px;
+    margin-left:36px; */
+    padding: 0px;
+    margin-top: calc(76px * var(--heightmultiplier));
+    width: calc(450px * var(--widthmultiplier));
+    height: calc(54px * var(--heightmultiplier));
+    border: 1px solid grey;
+    border-radius: calc(5px * (var(--heightmultiplier) + var(--widthmultiplier))/2);
+    opacity: 1;
+    background-color: #7D8CC4;
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15%;
+    padding-left: calc(10px * var(--widthmultiplier));
+    padding-right: calc(10px * var(--widthmultiplier));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    letter-spacing: 0.25px;
+    color: white;
+
+    opacity: 1;
+
+}
+.signin-formsubmit-signin-button:hover{
+    cursor: pointer;
+}
+
+.signinpage-signup-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 15%;
+
+    letter-spacing: 0.25px;
+
+    color: #7D8CC4;
+    margin-top: calc(45px * var(--heightmultiplier));
+
+
+}
+.signinpage-signup-button:hover{
+cursor: pointer;
+}
+
+.signin-input-form-container {
+    display: flex;
+    align-items: center;
+    justify-items: flex-start;
+    flex-direction: column;
+}

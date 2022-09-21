@@ -1,51 +1,3 @@
-// import {useState} from "react"
-// import axios from "axios";
-// const Signup=()=>{
-//     const [signUpState,setSignupState]=useState({})
-//     const signUpFormData=[{attr:"email",type:"email",id:"email",label:"UserID:"},
-//                             {attr:"password",type:"password",id:"password",label:"Password:"},
-//                             {attr:"cpassword",type:"password",id:"cpassword",label:"ConfirmPassword:"}
-//                         ]
-//         const handleUserdd=()=>{
-//           console.log(signUpState);
-//           axios({
-//             url:"http://localhost:5000/user/signup",
-//             method:"POST",
-//             headers:{
-//                  },
-//             data:signUpState
-//           }).then((res)=>{ 
-//         console.log(res)
-//           }).catch((err)=>{
-//             console.log(err)
-//           })
-//         }
-//         const handleInputChange=(e,id)=>{
-//            setSignupState({...signUpState,[id]:e.target.value})
-//         }
-//     return(
-//         <>
-//         <div>
-//             <form>
-//           {signUpFormData.map((formKey)=>{
-//             return(
-//                 <div>
-//                     <div>
-//                         <label for={formKey.id}>{formKey.label}</label>
-//                     </div>
-//                     <div>
-//                         <input type={formKey.type} id={formKey.id} onChange={(e)=>{handleInputChange(e,formKey.id)}}/>
-//                     </div>
-//                 </div>
-//             )
-//           })}
-//             </form>
-//             <button type="button" onClick={handleUserdd}>Submit</button>
-//         </div>
-//         </>
-//     )
-// }
-// export default Signup
 import React, { useState, useLayoutEffect } from 'react'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
@@ -53,9 +5,14 @@ import { useNavigate } from 'react-router-dom'
 
 import "./Signup.css"
 
-const Signup = () => {
+const Signup = ({ setuserCookie, userCookie }) => {
     let navigate = useNavigate()
 
+    // useEffect(()=>{
+    //     if (userCookie.token !== "") {
+    //         navigate("/contacts");
+    //     }
+    // },[userCookie.token])
     const [signUpState, setSignupState] = useState({
         username: "",
         password: "",
